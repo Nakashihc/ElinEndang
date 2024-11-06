@@ -88,7 +88,7 @@ public class Movement : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, doubleJumpPower);
                 jumpCount++;
-                anim.SetBool("isJumping", false);
+                anim.SetTrigger("isJumping");
             }
         }
 
