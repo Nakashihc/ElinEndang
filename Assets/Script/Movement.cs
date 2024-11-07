@@ -52,6 +52,7 @@ public class Movement : MonoBehaviour
     private int jumpCount = 0;
     private int maxJumps = 2; // Allowing double jump
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -121,6 +122,7 @@ public class Movement : MonoBehaviour
         {
             Flip();
         }
+
     }
 
     private void FixedUpdate()
@@ -130,6 +132,7 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         }
+
     }
 
     private bool IsGrounded()

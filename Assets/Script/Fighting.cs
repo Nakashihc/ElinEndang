@@ -12,11 +12,13 @@ public class Fighting : MonoBehaviour
     public AudioClip[] sounds;
     public float moveDistance = 1f;
     public float moveSpeed = 5f; // Speed for Lerp movement
+    public float comboCooldown = 1f; // Cooldown time for combo reset
 
     private Vector3 startPos;
     private Vector3 targetPos;
     private bool isMoving = false;
     private float moveProgress = 0f;
+    private float comboTimer = 0f;
 
     void Start()
     {
@@ -40,6 +42,17 @@ public class Fighting : MonoBehaviour
                 isMoving = false;
             }
         }
+
+        // Update combo timer and reset combo if cooldown exceeded
+        if (combo > 0)
+        {
+            comboTimer += Time.deltaTime;
+            if (comboTimer >= comboCooldown)
+            {
+                ResetCombo();
+                mov.enabled = true;
+            }
+        }
     }
 
     public void Combos()
@@ -61,6 +74,7 @@ public class Fighting : MonoBehaviour
 
             isMoving = true;
             moveProgress = 0f;
+            comboTimer = 0f; // Reset combo timer on each attack
         }
     }
 
@@ -71,6 +85,7 @@ public class Fighting : MonoBehaviour
         if (combo < 3)
         {
             combo++;
+            comboTimer = 0f; // Reset timer when advancing to the next combo
         }
     }
 
@@ -78,6 +93,12 @@ public class Fighting : MonoBehaviour
     {
         mov.enabled = true;
         attack = false;
+        ResetCombo(); // Reset combo when animation finishes
+    }
+
+    private void ResetCombo()
+    {
         combo = 0;
+        comboTimer = 0f;
     }
 }
