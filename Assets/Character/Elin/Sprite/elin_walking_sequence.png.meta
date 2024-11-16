@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d3d26e3e235b086419dd225740c2c983
+guid: 937ddb89bc1a927479608071c76ec410
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 46
+  spritePixelsToUnits: 720
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,169 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fire_WarriorRun_0
+      name: elin_walking_sequence_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 16
-        width: 60
-        height: 60
+        x: 1333
+        y: 51
+        width: 317
+        height: 733
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bd2dc8bd930f9a48ac4a0d6684aef64
-      internalID: 1498854305
+      spriteID: 9b7a7d51c311a0049887ec0c2ac5b495
+      internalID: 1614974526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_WarriorRun_1
+      name: elin_walking_sequence_2
       rect:
         serializedVersion: 2
-        x: 177
-        y: 16
-        width: 60
-        height: 60
+        x: 1769
+        y: 53
+        width: 499
+        height: 734
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a492d960cb37924795e47a534ec5591
-      internalID: 445876875
+      spriteID: 9d5375e3997e8c8449ef3d7cf8a390ef
+      internalID: 1141784855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_WarriorRun_2
+      name: elin_walking_sequence_3
       rect:
         serializedVersion: 2
-        x: 321
-        y: 16
-        width: 60
-        height: 60
+        x: 2293
+        y: 48
+        width: 391
+        height: 741
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80e30a51df01456458b6ac392bd08848
-      internalID: -858183114
+      spriteID: 82786f9ab081cc048b85f3ba196ef74f
+      internalID: -1400994942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_WarriorRun_3
+      name: elin_walking_sequence_4
       rect:
         serializedVersion: 2
-        x: 465
-        y: 16
-        width: 60
-        height: 60
+        x: 2768
+        y: 53
+        width: 264
+        height: 736
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e027361a9744d54ca586647b1d4865a
-      internalID: 1535242311
+      spriteID: c1b0989959940124b812027fa4d87c99
+      internalID: -1166464868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_WarriorRun_4
+      name: elin_walking_sequence_5
       rect:
         serializedVersion: 2
-        x: 606
-        y: 16
-        width: 65
-        height: 60
+        x: 71
+        y: 53
+        width: 440
+        height: 721
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1e6a11f1bd5c31468e355b107c0d70a
-      internalID: 1605000998
+      spriteID: 2ec6f95ef40acc24fa15d3762933f3b9
+      internalID: -536644204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_WarriorRun_5
+      name: elin_walking_sequence_6
       rect:
         serializedVersion: 2
-        x: 753
-        y: 16
-        width: 60
-        height: 60
+        x: 551
+        y: 53
+        width: 389
+        height: 727
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b91b6875d110d23418c2a9089146ed47
-      internalID: -883184250
+      spriteID: ee35d6a05e843ba49ada014ba4b1ed3c
+      internalID: -1220759764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_WarriorRun_6
+      name: elin_walking_sequence_7
       rect:
         serializedVersion: 2
-        x: 897
-        y: 16
-        width: 60
-        height: 60
+        x: 996
+        y: 51
+        width: 241
+        height: 729
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a74b751793ae2a43be66928ea2ea908
-      internalID: 1945093219
+      spriteID: a9f052b4ab793b84abf39e5981cbbac8
+      internalID: -1556128942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_WarriorRun_7
+      name: elin_walking_sequence_8
       rect:
         serializedVersion: 2
-        x: 1041
-        y: 16
-        width: 60
-        height: 60
+        x: 3121
+        y: 55
+        width: 515
+        height: 727
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95d7b9a3bc4d3be40bacf2289418e7c1
-      internalID: -942902713
+      spriteID: 0c17895964ef1ae4494667c9792fd949
+      internalID: -1856610299
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fire_WarriorRun_0: 1498854305
-      Fire_WarriorRun_1: 445876875
-      Fire_WarriorRun_2: -858183114
-      Fire_WarriorRun_3: 1535242311
-      Fire_WarriorRun_4: 1605000998
-      Fire_WarriorRun_5: -883184250
-      Fire_WarriorRun_6: 1945093219
-      Fire_WarriorRun_7: -942902713
+      elin_walking_sequence_0: -1517752550
+      elin_walking_sequence_1: 1614974526
+      elin_walking_sequence_2: 1141784855
+      elin_walking_sequence_3: -1400994942
+      elin_walking_sequence_4: -1166464868
+      elin_walking_sequence_5: -536644204
+      elin_walking_sequence_6: -1220759764
+      elin_walking_sequence_7: -1556128942
+      elin_walking_sequence_8: -1856610299
+      elin_walking_sequence_9: 1399235439
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

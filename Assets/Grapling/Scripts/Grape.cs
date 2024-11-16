@@ -11,7 +11,7 @@ public class Grape : MonoBehaviour
     private LineRenderer linerender;
     private Vector3 tempPose;
     [SerializeField] LayerMask grapmask;
-
+    public bool isGrapling;
 
     void Start()
     {
@@ -28,27 +28,43 @@ public class Grape : MonoBehaviour
 
     void Update()
     {
-        Getmouse();
-
-        RaycastHit2D hitray = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition) , Vector2.zero , Mathf.Infinity , grapmask);
-
-        if(Input.GetMouseButtonDown(0) && check && hitray)
+        if (!isGrapling)
         {
-            linerender.enabled = true;
-            distancejoin.enabled = true;
-            distancejoin.connectedAnchor = mousepos;   //settup hook       
-            tempPose = mousepos;
-            check = false;
+            if (Input.GetKey(KeyCode.G))
+            {
+                isGrapling = true;
+            }
         }
-        else if(Input.GetMouseButtonDown(0))
+        else if(isGrapling)
         {
-            distancejoin.enabled = false;
-            check = true;
-            linerender.enabled = false;
-        }
+            if (Input.GetKey(KeyCode.G))
+            {
+                isGrapling = false;
+            }
+            else
+            {
+                Getmouse();
 
-        Drawline();
-        
+                RaycastHit2D hitray = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, grapmask);
+
+                if (Input.GetMouseButtonDown(0) && check && hitray)
+                {
+                    linerender.enabled = true;
+                    distancejoin.enabled = true;
+                    distancejoin.connectedAnchor = mousepos;   //settup hook       
+                    tempPose = mousepos;
+                    check = false;
+                }
+                else if (Input.GetMouseButtonDown(0))
+                {
+                    distancejoin.enabled = false;
+                    check = true;
+                    linerender.enabled = false;
+                }
+
+                Drawline();
+            }
+        }
     }
 
     void Drawline()

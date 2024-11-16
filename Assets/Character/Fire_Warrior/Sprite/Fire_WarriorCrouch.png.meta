@@ -108,7 +108,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Fire_WarriorCrouch_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 16
+        width: 100
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9745c562516254b845239ce98a9213
+      internalID: -841142396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_WarriorCrouch_1
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 16
+        width: 100
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101277fae5dad544a926e834a23acedf
+      internalID: 1033898851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_WarriorCrouch_2
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 16
+        width: 100
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87911dd8e61724c4aa7317a54b2613cd
+      internalID: -1053834256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_WarriorCrouch_3
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 16
+        width: 100
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9edfd6ac55e62f04a9b31bc2797bd1b0
+      internalID: 1844248133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_WarriorCrouch_4
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 16
+        width: 100
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a9372dfeb63eba47a481025244009fb
+      internalID: 2003614040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +224,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fire_WarriorCrouch_0: -841142396
+      Fire_WarriorCrouch_1: 1033898851
+      Fire_WarriorCrouch_2: -1053834256
+      Fire_WarriorCrouch_3: 1844248133
+      Fire_WarriorCrouch_4: 2003614040
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

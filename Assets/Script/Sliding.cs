@@ -2,58 +2,65 @@ using UnityEngine;
 
 public class Sliding : MonoBehaviour
 {
+    public Jongkok jong;
+    [Header("Sliding")]
     public float slideSpeed = 10f;
     public float slideDuration = 0.5f;
     private bool isSliding = false;
     private float slideTimer = 0f;
     private Vector3 slideStartPos;
     private Vector3 slideEndPos;
-
     [SerializeField] private LayerMask wallSlideLayer;
-    [SerializeField] private BoxCollider2D atas;
-    private Rigidbody2D rb;
 
-    // Energy variables
-    [SerializeField] private float maxEnergy = 100f; // Maximum energy
-    [SerializeField] private float energyCost = 20f; // Energy cost per slide
+    [Header("Energy")]
+    [SerializeField] private float maxEnergy = 100f;
+    [SerializeField] private float energyCost = 20f;
     private float currentEnergy;
-    [SerializeField] private float energyRegenRate = 5f; // Rate of energy regeneration per second
+    [SerializeField] private float energyRegenRate = 5f;
+
+    private Rigidbody2D rb;
+    private Movement movement;
+
+    public bool canSlide = true;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentEnergy = maxEnergy; // Set energy to max at the start
+        movement = GetComponent<Movement>();
+        currentEnergy = maxEnergy;
     }
 
     private void Update()
     {
-        // Check for slide input and sufficient energy
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C) && !isSliding && rb.velocity.x != 0 && currentEnergy >= energyCost)
-        {
-            StartSlide();
-        }
-
         ProcessSlide();
 
-        // Regenerate energy over time if it's below maxEnergy
         if (currentEnergy < maxEnergy && !isSliding)
         {
             currentEnergy += energyRegenRate * Time.deltaTime;
-            currentEnergy = Mathf.Min(currentEnergy, maxEnergy); // Ensure energy doesn't exceed max
+            currentEnergy = Mathf.Min(currentEnergy, maxEnergy);
         }
     }
 
-    private void StartSlide()
+    public void StartSlide()
     {
-        isSliding = true;
-        slideTimer = 0f;
-        atas.enabled = false;
+        if (currentEnergy >= energyCost)
+        {
+            isSliding = true;
+            slideTimer = 0f;
+            movement.anim.SetBool("isCrouching", false);
+            jong.UpdateColliderState(false);
+            movement.enabled = false;
+            currentEnergy -= energyCost;
 
-        // Deduct energy for sliding
-        currentEnergy -= energyCost;
+            slideStartPos = transform.position;
+            slideEndPos = slideStartPos + transform.right * movement.GetHorizontal() * slideSpeed;
 
-        slideStartPos = transform.position;
-        slideEndPos = slideStartPos + transform.right * Mathf.Sign(rb.velocity.x) * slideSpeed;
+            movement.DisableCollider(); // Disable movement collider if necessary
+        }
+        else
+        {
+            // Pass
+        }
     }
 
     private void ProcessSlide()
@@ -61,7 +68,7 @@ public class Sliding : MonoBehaviour
         if (isSliding)
         {
             slideTimer += Time.deltaTime;
-
+            movement.anim.SetBool("isSliding", true);
             BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
             if (boxCollider != null)
             {
@@ -90,14 +97,36 @@ public class Sliding : MonoBehaviour
             if (slideTimer >= slideDuration)
             {
                 isSliding = false;
-                atas.enabled = true;
             }
+        }
+        else
+        {
+            movement.anim.SetBool("isSliding", false);
+            jong.UpdateColliderState(true);
+            movement.enabled = true;
         }
     }
 
-    // Optionally, create a method to display the current energy (e.g., in a UI element)
     public float GetCurrentEnergy()
     {
         return currentEnergy;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("NoSlideZone")) // Replace with tag or layer name
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                canSlide = true;
+            }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("NoSlideZone")) // Replace with tag or layer name
+        {
+            canSlide = false;
+        }
     }
 }

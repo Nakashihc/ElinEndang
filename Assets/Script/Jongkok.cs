@@ -1,25 +1,99 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Jongkok : MonoBehaviour
 {
-    public BoxCollider2D HeadCollider;
-    public BoxCollider2D Atas;
+    public Sliding sliding;
+    public Movement mov;
+    public bool isCrouching;
+    public bool isRunning;
+    public BoxCollider2D headCollider;
+    public BoxCollider2D atasCollider;
+
+    private bool isStructureAbove;
+
+    private Rigidbody2D rb;
+    private Movement movement;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        movement = GetComponent<Movement>();
+    }
+
+    private void Update()
+    {
+        // Sliding Logic
+        if (sliding.canSlide && Input.GetKeyDown(KeyCode.C) && isRunning && sliding.canSlide)
+        {
+            sliding.StartSlide();
+        }
+
+        if (isCrouching && !isRunning)
+        {
+            mov.anim.SetBool("isCrouching", false);
+            UpdateColliderState(false);
+        }
+        else if(!isCrouching && !isRunning)
+        {
+            UpdateColliderState(true);
+            mov.anim.SetBool("isCrouching", true);
+        }
+
+        // Crouch Logic
+        if (Input.GetKeyDown(KeyCode.C) && !isRunning && !isCrouching)
+        {
+            isCrouching = true;
+            movement.currentSpeed = movement.jalan * movement.crouchspeed;
+        }
+        else if (Input.GetKeyUp(KeyCode.C) || isRunning)
+        {
+            isCrouching = false;
+            movement.currentSpeed = movement.jalan;
+        }
+
+        // Update speed for running
+        if (sliding.canSlide && !isCrouching)
+        {
+            isRunning = true;
+            movement.currentSpeed = movement.jalan * movement.runningSpeed;
+        }
+        else if(!sliding.canSlide)
+        {
+            isRunning = false;
+            if (!isCrouching)
+                movement.currentSpeed = movement.jalan;
+        }
+
+        if (isStructureAbove)
+        {
+            isCrouching = true;
+            UpdateColliderState(false);
+        }
+    }
+
+    public void UpdateColliderState(bool isStanding)
+    {
+        atasCollider.enabled = isStanding;
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Structure") && Atas != null)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Structure"))
         {
-            Atas.enabled = false;
+            isStructureAbove = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Structure") && Atas != null)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Structure"))
         {
-            Atas.enabled = true;
+            isStructureAbove = false;
+            if (!Input.GetKey(KeyCode.C))
+            {
+                isCrouching = false;
+                UpdateColliderState(true);
+            }
         }
     }
 }

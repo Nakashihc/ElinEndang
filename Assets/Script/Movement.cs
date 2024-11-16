@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public Jongkok jongkok;
+    public Sliding sliding;
+
     [Header("Walk Run Jump")]
-    [SerializeField] private float baseSpeed = 3f;
-    [SerializeField] private float runningSpeed = 6f;
+    public float currentSpeed;
+    public float jalan = 3f;
+    public float runningSpeed = 6f;
+    public float crouchspeed = 1f;
     [SerializeField] private float jumpingPower = 10f;
     [SerializeField] private float doubleJumpPower = 7f;
     private float horizontal;
-    private float speed;
     private bool isFacingRight = true;
 
     public Animator anim;
@@ -23,58 +27,65 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
 
     private bool isWallSliding;
-    private float wallSlidingSpeed = 2f;
+    [SerializeField] private float wallSlidingSpeed = 2f;
 
     private bool isWallJumping;
     private float wallJumpingDirection;
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+    [SerializeField] private Vector2 wallJumpingPower = new Vector2(8f, 16f);
 
     [Header("Sliding")]
-    public float slideSpeed = 10f;
-    public float slideDuration = 0.5f;
     private bool isSliding = false;
-    private float slideTimer = 0f;
-    private Vector3 slideStartPos;
-    private Vector3 slideEndPos;
-    [SerializeField] private LayerMask wallSlideLayer; // Layer for wall collision during slide
 
-    // Energy variables
-    [SerializeField] private float maxEnergy = 100f; // Maximum energy
-    [SerializeField] private float energyCost = 20f; // Energy cost per slide
-    private float currentEnergy;
-    [SerializeField] private float energyRegenRate = 5f; // Rate of energy regeneration per second
-
-    // Variables for jump logic
     private bool isGrounded = false;
     private int jumpCount = 0;
-    private int maxJumps = 2; // Allowing double jump
+    private int maxJumps = 2;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentEnergy = maxEnergy; // Set energy to max at the start
+        currentSpeed = jalan;
     }
 
     private void Update()
     {
-        // Set speed based on Shift key input
-        speed = Input.GetKey(KeyCode.LeftShift) ? runningSpeed : baseSpeed;
-
+        // Cek input horizontal
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        // Update animation states based on movement and speed
-        anim.SetBool("isWalking", horizontal != 0 && speed == baseSpeed);
-        anim.SetBool("isRunning", horizontal != 0 && speed == runningSpeed);
-        anim.SetBool("isIdling", horizontal == 0);
+        if (jongkok.isCrouching)
+        {
+            currentSpeed = crouchspeed;
+            sliding.canSlide = false;
+            anim.SetBool("isCrouching", true);
+            anim.SetBool("isRunning", false);
+        }
+        else
+        {
+            // Lari
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                currentSpeed = runningSpeed;
+                sliding.canSlide = true; // Sliding diizinkan
+                anim.SetBool("isCrouching", false);
+            }
+            else
+            {
+                // Jalan
+                currentSpeed = jalan;
+                sliding.canSlide = false; // Tidak bisa sliding
+                anim.SetBool("isCrouching", false);
+            }
+        }
 
-        // Check if grounded and set "Air" animation
+        anim.SetBool("isWalking", horizontal != 0 && currentSpeed == jalan);
+        anim.SetBool("isRunning", horizontal != 0 && currentSpeed == runningSpeed);
+        anim.SetBool("isIdling", horizontal == 0 && !jongkok.isCrouching && !Input.GetKey(KeyCode.LeftShift));
+
         isGrounded = IsGrounded();
         anim.SetBool("isFalling", !isGrounded);
 
-        // Jump logic
         if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
@@ -82,36 +93,17 @@ public class Movement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                 jumpCount = 1;
                 anim.SetTrigger("isJumping");
-                anim.SetBool("isIdling", false);
             }
             else if (jumpCount < maxJumps)
             {
                 rb.velocity = new Vector2(rb.velocity.x, doubleJumpPower);
                 jumpCount++;
-                anim.SetTrigger("isJumping");
             }
         }
 
-        // Reduce jump height if jump button is released
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        // Slide logic with energy check
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C) && !isSliding && horizontal != 0 && currentEnergy >= energyCost)
-        {
-            StartSlide();
-        }
-
-        // Process slide
-        ProcessSlide();
-
-        // Regenerate energy over time if it's below maxEnergy
-        if (currentEnergy < maxEnergy && !isSliding)
-        {
-            currentEnergy += energyRegenRate * Time.deltaTime;
-            currentEnergy = Mathf.Min(currentEnergy, maxEnergy); // Ensure energy doesn't exceed max
         }
 
         WallSlide();
@@ -125,10 +117,9 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Move character only when not wall jumping or sliding
         if (!isWallJumping && !isSliding)
         {
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            rb.velocity = new Vector2(horizontal * currentSpeed, rb.velocity.y);
         }
     }
 
@@ -146,12 +137,14 @@ public class Movement : MonoBehaviour
     {
         if (IsWalled() && !IsGrounded() && horizontal != 0f)
         {
+            anim.SetBool("isHang", true);
             isWallSliding = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
         }
         else
         {
             isWallSliding = false;
+            anim.SetBool("isHang", false);
         }
     }
 
@@ -204,67 +197,12 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void StartSlide()
-    {
-        isSliding = true;
-        slideTimer = 0f;
-        atas.enabled = false;
-
-        // Deduct energy for sliding
-        currentEnergy -= energyCost;
-
-        slideStartPos = transform.position;
-        slideEndPos = slideStartPos + transform.right * horizontal * slideSpeed;
-    }
-
-    private void ProcessSlide()
-    {
-        if (isSliding)
-        {
-            slideTimer += Time.deltaTime;
-
-            // Use BoxCast to detect collision with wall layer during slide
-            BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
-            if (boxCollider != null)
-            {
-                RaycastHit2D hit = Physics2D.BoxCast(
-                    boxCollider.bounds.center,
-                    boxCollider.bounds.size,
-                    0f,
-                    Vector2.right * Mathf.Sign(slideEndPos.x - slideStartPos.x),
-                    0.2f,
-                    wallSlideLayer
-                );
-
-                if (hit.collider != null)
-                {
-                    isSliding = false; // Stop sliding if a wall is detected
-                    return;
-                }
-            }
-
-            // Interpolate position for slide
-            transform.position = new Vector3(
-                Mathf.Lerp(slideStartPos.x, slideEndPos.x, slideTimer / slideDuration),
-                transform.position.y,
-                transform.position.z
-            );
-
-            // Reset sliding if slide duration has elapsed
-            if (slideTimer >= slideDuration)
-            {
-                isSliding = false;
-                atas.enabled = true;
-            }
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (((1 << collision.gameObject.layer) & groundLayer) != 0)
         {
             isGrounded = true;
-            jumpCount = 0; // Reset jump count when grounded
+            jumpCount = 0;
         }
     }
 
@@ -276,9 +214,13 @@ public class Movement : MonoBehaviour
         }
     }
 
-    // Method to get current energy for UI display
-    public float GetCurrentEnergy()
+    public float GetHorizontal()
     {
-        return currentEnergy;
+        return horizontal;
+    }
+
+    public void DisableCollider()
+    {
+        atas.enabled = false;
     }
 }

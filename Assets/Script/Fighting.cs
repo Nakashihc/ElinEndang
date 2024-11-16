@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fighting : MonoBehaviour
 {
     public Movement mov;
+    public Jongkok jong;
     public Animator anim;
     public int combo;
     public bool attack;
@@ -12,11 +13,13 @@ public class Fighting : MonoBehaviour
     public AudioClip[] sounds;
     public float moveDistance = 1f;
     public float moveSpeed = 5f; // Speed for Lerp movement
+    public float comboCooldown = 1f; // Cooldown time for combo reset
 
     private Vector3 startPos;
     private Vector3 targetPos;
     private bool isMoving = false;
     private float moveProgress = 0f;
+    private float comboTimer = 0f;
 
     void Start()
     {
@@ -40,27 +43,50 @@ public class Fighting : MonoBehaviour
                 isMoving = false;
             }
         }
+
+        // Update combo timer and reset combo if cooldown exceeded
+        if (combo > 0)
+        {
+            comboTimer += Time.deltaTime;
+            if (comboTimer >= comboCooldown)
+            {
+                ResetCombo();
+                mov.enabled = true;
+            }
+        }
     }
 
     public void Combos()
     {
-        if (Input.GetMouseButtonDown(0) && !attack && !isMoving)
+        if(!jong.isCrouching)
         {
-            attack = true;
-            anim.SetTrigger("" + combo);
-
-            if (combo < sounds.Length)
+            if (Input.GetMouseButtonDown(0) && !attack && !isMoving)
             {
-                audioo.clip = sounds[combo];
-                audioo.Play();
+                attack = true;
+                anim.SetTrigger("" + combo);
+
+                if (combo < sounds.Length)
+                {
+                    audioo.clip = sounds[combo];
+                    audioo.Play();
+                }
+
+                startPos = transform.position;
+                float direction = transform.localScale.x > 0 ? 1 : -1;
+                targetPos = startPos + new Vector3(moveDistance * direction, 0, 0);
+
+                isMoving = true;
+                moveProgress = 0f;
+                comboTimer = 0f;
             }
-
-            startPos = transform.position;
-            float direction = transform.localScale.x > 0 ? 1 : -1;
-            targetPos = startPos + new Vector3(moveDistance * direction, 0, 0);
-
-            isMoving = true;
-            moveProgress = 0f;
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                attack = true;
+                anim.SetTrigger("crouchAttk");
+            }
         }
     }
 
@@ -71,13 +97,23 @@ public class Fighting : MonoBehaviour
         if (combo < 3)
         {
             combo++;
+            comboTimer = 0f;
         }
+        
+
     }
 
     public void Finish_Ani()
     {
         mov.enabled = true;
         attack = false;
+        ResetCombo();
+    }
+
+    private void ResetCombo()
+    {
         combo = 0;
+        comboTimer = 0f;
+
     }
 }

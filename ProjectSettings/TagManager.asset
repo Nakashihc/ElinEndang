@@ -8,6 +8,8 @@ TagManager:
   - box
   - Gun
   - Tali
+  - NoSlideZone
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Grapling
+  - Ladder
   - 
   - 
   - 
