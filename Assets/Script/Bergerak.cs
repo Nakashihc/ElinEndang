@@ -39,7 +39,7 @@ public class Bergerak : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || jumpCount < maxJumps))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             jumpCount++;
             isGrounded = false;
         }

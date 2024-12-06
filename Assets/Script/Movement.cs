@@ -90,20 +90,20 @@ public class Movement : MonoBehaviour
         {
             if (isGrounded)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
                 jumpCount = 1;
                 anim.SetTrigger("isJumping");
             }
             else if (jumpCount < maxJumps)
             {
-                rb.velocity = new Vector2(rb.velocity.x, doubleJumpPower);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, doubleJumpPower);
                 jumpCount++;
             }
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
         }
 
         WallSlide();
@@ -119,7 +119,7 @@ public class Movement : MonoBehaviour
     {
         if (!isWallJumping && !isSliding)
         {
-            rb.velocity = new Vector2(horizontal * currentSpeed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(horizontal * currentSpeed, rb.linearVelocity.y);
         }
     }
 
@@ -139,7 +139,7 @@ public class Movement : MonoBehaviour
         {
             anim.SetBool("isHang", true);
             isWallSliding = true;
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -wallSlidingSpeed, float.MaxValue));
         }
         else
         {
@@ -166,7 +166,7 @@ public class Movement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
         {
             isWallJumping = true;
-            rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             wallJumpingCounter = 0f;
 
             if (transform.localScale.x != wallJumpingDirection)

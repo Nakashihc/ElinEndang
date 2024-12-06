@@ -126,7 +126,10 @@ public class Sliding : MonoBehaviour
     {
         if (collision.CompareTag("NoSlideZone")) // Replace with tag or layer name
         {
-            canSlide = false;
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                canSlide = true;
+            }
         }
     }
 }

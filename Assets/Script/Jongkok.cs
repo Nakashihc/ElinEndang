@@ -30,13 +30,13 @@ public class Jongkok : MonoBehaviour
 
         if (isCrouching && !isRunning)
         {
-            mov.anim.SetBool("isCrouching", false);
+            mov.anim.SetBool("isCrouching", true);
             UpdateColliderState(false);
         }
         else if(!isCrouching && !isRunning)
         {
             UpdateColliderState(true);
-            mov.anim.SetBool("isCrouching", true);
+            mov.anim.SetBool("isCrouching", false);
         }
 
         // Crouch Logic

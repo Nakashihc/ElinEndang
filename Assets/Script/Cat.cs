@@ -22,7 +22,7 @@ public class Cat : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {		
 
-		if (Input.GetButtonDown ("Jump") && !isDead && rb.velocity.y == 0)
+		if (Input.GetButtonDown ("Jump") && !isDead && rb.linearVelocity.y == 0)
 			rb.AddForce (Vector2.up * 600f);
 
 		if (Input.GetKey (KeyCode.LeftShift))
@@ -39,7 +39,7 @@ public class Cat : MonoBehaviour {
 	void FixedUpdate()
 	{
 		if (!isHurting)
-			rb.velocity = new Vector2 (dirX, rb.velocity.y);
+			rb.linearVelocity = new Vector2 (dirX, rb.linearVelocity.y);
 	}
 
 	void LateUpdate()
@@ -54,15 +54,15 @@ public class Cat : MonoBehaviour {
 			anim.SetBool ("isRunning", false);
 		}
 
-		if (rb.velocity.y == 0) {
+		if (rb.linearVelocity.y == 0) {
 			anim.SetBool ("isJumping", false);
 			anim.SetBool ("isFalling", false);
 		}
 
-		if (Mathf.Abs(dirX) == 5 && rb.velocity.y == 0)
+		if (Mathf.Abs(dirX) == 5 && rb.linearVelocity.y == 0)
 			anim.SetBool ("isWalking", true);
 		
-		if (Mathf.Abs(dirX) == 10 && rb.velocity.y == 0)
+		if (Mathf.Abs(dirX) == 10 && rb.linearVelocity.y == 0)
 			anim.SetBool ("isRunning", true);
 		else
 			anim.SetBool ("isRunning", false);
@@ -72,10 +72,10 @@ public class Cat : MonoBehaviour {
 		else
 			anim.SetBool ("isSliding", false);
 
-		if (rb.velocity.y > 0)
+		if (rb.linearVelocity.y > 0)
 			anim.SetBool ("isJumping", true);
 		
-		if (rb.velocity.y < 0) {
+		if (rb.linearVelocity.y < 0) {
 			anim.SetBool ("isJumping", false);
 			anim.SetBool ("isFalling", true);
 		}
@@ -114,7 +114,7 @@ public class Cat : MonoBehaviour {
 	IEnumerator Hurt()
 	{
 		isHurting = true;
-		rb.velocity = Vector2.zero;
+		rb.linearVelocity = Vector2.zero;
 
 		if (facingRight)
 			rb.AddForce (new Vector2(-200f, 200f));
