@@ -145,6 +145,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -154,7 +167,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 20
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -176,7 +189,7 @@ TextureImporter:
         serializedVersion: 2
         x: 22
         y: 0
-        width: 20
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -198,7 +211,7 @@ TextureImporter:
         serializedVersion: 2
         x: 44
         y: 0
-        width: 20
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -218,7 +231,7 @@ TextureImporter:
       name: Skeleton Walk_3
       rect:
         serializedVersion: 2
-        x: 65
+        x: 66
         y: 0
         width: 22
         height: 33
@@ -240,9 +253,9 @@ TextureImporter:
       name: Skeleton Walk_4
       rect:
         serializedVersion: 2
-        x: 87
+        x: 88
         y: 0
-        width: 23
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -262,9 +275,9 @@ TextureImporter:
       name: Skeleton Walk_5
       rect:
         serializedVersion: 2
-        x: 109
+        x: 110
         y: 0
-        width: 24
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -284,9 +297,9 @@ TextureImporter:
       name: Skeleton Walk_6
       rect:
         serializedVersion: 2
-        x: 131
+        x: 132
         y: 0
-        width: 24
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -306,9 +319,9 @@ TextureImporter:
       name: Skeleton Walk_7
       rect:
         serializedVersion: 2
-        x: 153
+        x: 154
         y: 0
-        width: 24
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -328,9 +341,9 @@ TextureImporter:
       name: Skeleton Walk_8
       rect:
         serializedVersion: 2
-        x: 175
+        x: 176
         y: 0
-        width: 24
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -350,9 +363,9 @@ TextureImporter:
       name: Skeleton Walk_9
       rect:
         serializedVersion: 2
-        x: 197
+        x: 198
         y: 0
-        width: 24
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -394,9 +407,9 @@ TextureImporter:
       name: Skeleton Walk_11
       rect:
         serializedVersion: 2
-        x: 243
+        x: 242
         y: 0
-        width: 20
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -416,9 +429,9 @@ TextureImporter:
       name: Skeleton Walk_12
       rect:
         serializedVersion: 2
-        x: 265
+        x: 264
         y: 0
-        width: 19
+        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -438,7 +451,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2de8463320da0eb4c8ee9dda58c34b98
     internalID: 0
     vertices: []
     indices: 
