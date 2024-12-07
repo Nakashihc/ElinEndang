@@ -2512,6 +2512,7 @@ GameObject:
   - component: {fileID: 974885472}
   - component: {fileID: 974885475}
   - component: {fileID: 974885476}
+  - component: {fileID: 974885479}
   - component: {fileID: 974885468}
   - component: {fileID: 974885471}
   m_Layer: 0
@@ -3063,6 +3064,24 @@ MonoBehaviour:
   energyCost: 10
   energyRegenRate: 5
   canSlide: 0
+--- !u!114 &974885479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974885463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3924f2d85b622145bdc687cccc59e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallCheck: {fileID: 1706977859}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  rb: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!1 &1031378441
 GameObject:
   m_ObjectHideFlags: 0
