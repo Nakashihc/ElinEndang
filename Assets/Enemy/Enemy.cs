@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class Enemy : MonoBehaviour
 {
     public Animator animator;
+    public MeleEnemy mele;
     [Header("Kesehatan")]
     public int currentHealth;
     public int maxHealth = 4;
@@ -25,9 +26,14 @@ public class Enemy : MonoBehaviour
 
     [Header("AudioSource")]
     public AudioSource audioSource;
+    private Camera mainCamera;
+    public float shakeIntensity = 0.1f;
+    public float shakeDuration = 0.2f;
+    public float shakeFrequency = 10f;
 
     void Start()
     {
+        mainCamera = Camera.main;
         currentHealth = maxHealth;
         Healthbar.SetHealth(currentHealth, maxHealth);
         Healthbar = GetComponentInChildren<HealthbarEnemy>();
@@ -46,10 +52,14 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Healthbar.SetHealth(currentHealth, maxHealth);
+        //Healthbar.SetHealth(currentHealth, maxHealth);
         Debug.Log("Enemy Hit!");
 
-        animator.SetTrigger("Hurt");
+        animator.SetTrigger("Hit");
+
+        mele.cooldownTimer = 0;
+        StartCoroutine(FreezeTimeEffect());
+        StartCoroutine(CameraShake());
 
         // Putar suara "HitSound"
         if (HitSound != null)
@@ -94,4 +104,38 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    private IEnumerator FreezeTimeEffect()
+    {
+        float originalTimeScale = Time.timeScale;
+
+        Time.timeScale = 0f;
+
+        yield return new WaitForSecondsRealtime(0.2f);
+
+        Time.timeScale = originalTimeScale;
+
+        yield return new WaitForSecondsRealtime(0.3f);
+    }
+
+    private IEnumerator CameraShake()
+    {
+        float originalRotation = mainCamera.transform.eulerAngles.z;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < shakeDuration)
+        {
+            float shakeRotation = Mathf.PingPong(elapsedTime * shakeFrequency, shakeIntensity * 2) - shakeIntensity;
+
+            mainCamera.transform.eulerAngles = new Vector3(0, 0, originalRotation + shakeRotation);
+
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        mainCamera.transform.eulerAngles = new Vector3(0, 0, originalRotation);
+    }
+
 }

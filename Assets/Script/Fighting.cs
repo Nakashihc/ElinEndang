@@ -21,17 +21,25 @@ public class Fighting : MonoBehaviour
     public float moveSpeed = 5f;
     public float comboCooldown = 1f;
 
+    [Header("Attack")]
+    public float Damage;
+    public Transform attackPoint;
+
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+    public int attackDamage = 2;
+
     private Vector3 startPos;
     private Vector3 targetPos;
     private bool isMoving = false;
     private float moveProgress = 0f;
     private float comboTimer = 0f;
 
-    private Camera mainCamera;
+    [Header("Kamera")]
     public float shakeIntensity = 0.1f;
     public float shakeDuration = 0.2f;
     public float shakeFrequency = 10f;
-
+    private Camera mainCamera;
 
     void Start()
     {
@@ -63,6 +71,16 @@ public class Fighting : MonoBehaviour
                 ResetCombo();
                 mov.enabled = true;
             }
+        }
+    }
+
+    private void DamageEnemy()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
     }
 
@@ -139,6 +157,8 @@ public class Fighting : MonoBehaviour
         }
     }
 
+    
+
     private IEnumerator FreezeTimeEffect()
     {
         float originalTimeScale = Time.timeScale;
@@ -173,4 +193,11 @@ public class Fighting : MonoBehaviour
         mainCamera.transform.eulerAngles = new Vector3(0, 0, originalRotation);
     }
 
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
 }

@@ -1929,6 +1929,13 @@ MonoBehaviour:
   moveDistance: 1
   moveSpeed: 5
   comboCooldown: 1
+  Damage: 0
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  attackDamage: 2
   shakeIntensity: 0.1
   shakeDuration: 0.2
   shakeFrequency: 10
@@ -2874,6 +2881,7 @@ Transform:
   - {fileID: 2067130715}
   - {fileID: 1031378442}
   - {fileID: 2030539609}
+  - {fileID: 2065753884}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &974885467
@@ -2994,7 +3002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfbe928b01c9c143bca031c11946b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Darah: 500
+  Darah: 498
   mov: {fileID: 974885467}
   jong: {fileID: 974885477}
   anim: {fileID: 974885464}
@@ -3008,6 +3016,13 @@ MonoBehaviour:
   moveDistance: 1
   moveSpeed: 5
   comboCooldown: 0.3
+  Damage: 5
+  attackPoint: {fileID: 2065753884}
+  attackRange: 0.39
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  attackDamage: 2
   shakeIntensity: 3
   shakeDuration: 0.2
   shakeFrequency: 10
@@ -5471,7 +5486,7 @@ GameObject:
   - component: {fileID: 1800906277}
   - component: {fileID: 1800906278}
   - component: {fileID: 1800906279}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Skeleton Idle_0
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5657,8 +5672,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1800906270}
+  mele: {fileID: 1800906279}
   currentHealth: 5
-  maxHealth: 10
+  maxHealth: 5555
   Healthbar: {fileID: 0}
   components: []
   MatiKnapa:
@@ -5668,6 +5684,9 @@ MonoBehaviour:
   HitSound: {fileID: 8300000, guid: cfdbb4dab7fa9674aa0fbf562618a234, type: 3}
   DeadSound: {fileID: 8300000, guid: cfdbb4dab7fa9674aa0fbf562618a234, type: 3}
   audioSource: {fileID: 1800906278}
+  shakeIntensity: 2
+  shakeDuration: 0.2
+  shakeFrequency: 10
 --- !u!82 &1800906278
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5777,7 +5796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de664760beb5b14d8295e0561a60812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 2
+  attackCooldown: 3
   range: 4.39
   damage: 2
   colliderDistance: 0
@@ -5785,8 +5804,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
+  cooldownTimer: 2
   playerscript: {fileID: 974885470}
-  speed: 2
+  speed: 1
   jarakPlayer: 7
   stopDistance: 1
   AttackSound: {fileID: 0}
@@ -6181,6 +6201,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 974885466}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2065753883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065753884}
+  m_Layer: 9
+  m_Name: Attackpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2065753884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065753883}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.255, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
