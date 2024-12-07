@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class Fighting : MonoBehaviour
 {
+    [Header("Health")]
+    public int Darah;
+
+    [Header("Script")]
     public Movement mov;
     public Jongkok jong;
     public Animator anim;
+
+    [Header("Attack")]
     public int combo;
     public bool attack;
     public AudioSource audioo;
     public AudioClip[] sounds;
     public float moveDistance = 1f;
-    public float moveSpeed = 5f; // Speed for Lerp movement
-    public float comboCooldown = 1f; // Cooldown time for combo reset
+    public float moveSpeed = 5f;
+    public float comboCooldown = 1f;
 
     private Vector3 startPos;
     private Vector3 targetPos;
@@ -21,30 +27,34 @@ public class Fighting : MonoBehaviour
     private float moveProgress = 0f;
     private float comboTimer = 0f;
 
+    private Camera mainCamera;
+    public float shakeIntensity = 0.1f;
+    public float shakeDuration = 0.2f;
+    public float shakeFrequency = 10f;
+
+
     void Start()
     {
         anim = GetComponent<Animator>();
         audioo = GetComponent<AudioSource>();
+        mainCamera = Camera.main;
     }
 
     void Update()
     {
         Combos();
 
-        // Process Lerp movement if moving
         if (isMoving)
         {
             moveProgress += Time.deltaTime * moveSpeed;
             transform.position = Vector3.Lerp(startPos, targetPos, moveProgress);
 
-            // Stop moving if target reached
             if (moveProgress >= 1f)
             {
                 isMoving = false;
             }
         }
 
-        // Update combo timer and reset combo if cooldown exceeded
         if (combo > 0)
         {
             comboTimer += Time.deltaTime;
@@ -58,7 +68,7 @@ public class Fighting : MonoBehaviour
 
     public void Combos()
     {
-        if(!jong.isCrouching)
+        if (!jong.isCrouching)
         {
             if (Input.GetMouseButtonDown(0) && !attack && !isMoving)
             {
@@ -99,8 +109,6 @@ public class Fighting : MonoBehaviour
             combo++;
             comboTimer = 0f;
         }
-        
-
     }
 
     public void Finish_Ani()
@@ -114,6 +122,55 @@ public class Fighting : MonoBehaviour
     {
         combo = 0;
         comboTimer = 0f;
-
     }
+
+    public void TakeDamage(int Damage)
+    {
+        if (Darah <= 0)
+        {
+            //pass
+        }
+        else
+        {
+            Darah -= Damage;
+            anim.SetTrigger("isHurt");
+            StartCoroutine(FreezeTimeEffect());
+            StartCoroutine(CameraShake());
+        }
+    }
+
+    private IEnumerator FreezeTimeEffect()
+    {
+        float originalTimeScale = Time.timeScale;
+
+        Time.timeScale = 0f;
+
+        yield return new WaitForSecondsRealtime(0.2f);
+
+        Time.timeScale = originalTimeScale;
+
+        yield return new WaitForSecondsRealtime(0.3f);
+        StopAllCoroutines();
+    }
+
+    private IEnumerator CameraShake()
+    {
+        float originalRotation = mainCamera.transform.eulerAngles.z;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < shakeDuration)
+        {
+            float shakeRotation = Mathf.PingPong(elapsedTime * shakeFrequency, shakeIntensity * 2) - shakeIntensity;
+
+            mainCamera.transform.eulerAngles = new Vector3(0, 0, originalRotation + shakeRotation);
+
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        mainCamera.transform.eulerAngles = new Vector3(0, 0, originalRotation);
+    }
+
 }
