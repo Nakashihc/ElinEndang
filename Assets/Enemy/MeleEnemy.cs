@@ -121,8 +121,9 @@ public class MeleEnemy : MonoBehaviour
         if (PlayerInSight())
         {
             audioosorc.PlayOneShot(AttackSound, 0.5f);
+            Vector2 knockbackDirection = (player.transform.position - transform.position).normalized; //penerapan arah knockback
+            playerscript.TakeDamage(damage, knockbackDirection); //nambah parameter vector2 knockbackDirection
 
-            playerscript.TakeDamage(damage);
         }
     }
 }

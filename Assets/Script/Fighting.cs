@@ -11,6 +11,8 @@ public class Fighting : MonoBehaviour
     public Movement mov;
     public Jongkok jong;
     public Animator anim;
+    //VisualizationShake untuk memberi efek kamera shake
+    public VisualizationShake visualizationShake;
 
     [Header("Attack")]
     public int combo;
@@ -124,7 +126,7 @@ public class Fighting : MonoBehaviour
         comboTimer = 0f;
     }
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(int Damage, Vector2 knockbackDirection)
     {
         if (Darah <= 0)
         {
@@ -134,8 +136,12 @@ public class Fighting : MonoBehaviour
         {
             Darah -= Damage;
             anim.SetTrigger("isHurt");
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            Debug.Log(rb + " " + knockbackDirection);
+            KnockbackManager.Instance.ApplyKnockback(rb, knockbackDirection); //script KnickbackManager untuk memanggil efek knockback
             StartCoroutine(FreezeTimeEffect());
-            StartCoroutine(CameraShake());
+            // StartCoroutine(CameraShake()); //ini dimatikan dahulu karna digantikan di skrip VisualizationShake.cs
+            visualizationShake.TriggerShake(); //manggil efek camera shake ketika musuh menyerang
         }
     }
 
