@@ -58,7 +58,6 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("Hit");
 
         mele.cooldownTimer = 0;
-        StartCoroutine(FreezeTimeEffect());
         StartCoroutine(CameraShake());
 
         // Putar suara "HitSound"
@@ -103,19 +102,6 @@ public class Enemy : MonoBehaviour
     void DestroyObject()
     {
         Destroy(gameObject);
-    }
-
-    private IEnumerator FreezeTimeEffect()
-    {
-        float originalTimeScale = Time.timeScale;
-
-        Time.timeScale = 0f;
-
-        yield return new WaitForSecondsRealtime(0.2f);
-
-        Time.timeScale = originalTimeScale;
-
-        yield return new WaitForSecondsRealtime(0.3f);
     }
 
     private IEnumerator CameraShake()
