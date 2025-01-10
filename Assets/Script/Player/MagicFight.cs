@@ -8,6 +8,7 @@ public class MagicFight : MonoBehaviour
     [SerializeField] private GameObject ProjectilePrefab;
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private float projectileSpeed;
+    public LayerMask targetLayer;
 
     [SerializeField] private int projectileCount = 3;
     [SerializeField] private float delayBetweenSpawns = 1f;
@@ -58,7 +59,7 @@ public class MagicFight : MonoBehaviour
         if (target != null)
         {
             playerMovement.canmove = true;
-            projectile.InitializeProjectile(target, projectileSpeed);
+            projectile.InitializeProjectile(target, projectileSpeed, targetLayer); // Menambahkan parameter targetLayer
         }
         canMagic = true;
     }

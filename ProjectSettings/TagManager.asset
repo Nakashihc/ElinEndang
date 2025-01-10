@@ -11,6 +11,7 @@ TagManager:
   - NoSlideZone
   - Ladder
   - Enemy
+  - Structure
   layers:
   - Default
   - TransparentFX
