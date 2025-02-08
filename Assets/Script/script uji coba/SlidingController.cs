@@ -14,9 +14,10 @@ public class SlidingController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private LayerMask wallSlideLayer;
+
     private Rigidbody2D rb;
-    private Animator anim;
     private PlayerMovements playerMovement;
+    private CrouchController crouchController;
 
     public float currentEnergy;
     public bool isSliding = false;
@@ -24,19 +25,25 @@ public class SlidingController : MonoBehaviour
     private Vector3 slideStartPos;
     private Vector3 slideEndPos;
 
-    public bool CanSlide { get; private set; } = true;
+    private bool _canSlide = true; // Backing field
+    public bool CanSlide
+    {
+        get => _canSlide && currentEnergy >= energyCost && crouchController.isCrouching;
+        private set => _canSlide = value; // Hanya bisa diubah dari dalam skrip
+    }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovements>();
+        crouchController = GetComponent<CrouchController>();
         currentEnergy = maxEnergy;
     }
 
     private void Update()
     {
         RegenerateEnergy();
+
         if (isSliding)
         {
             ProcessSlide();
@@ -54,7 +61,7 @@ public class SlidingController : MonoBehaviour
 
     public void StartSlide()
     {
-        if (!CanSlide || isSliding || currentEnergy < energyCost)
+        if (!CanSlide || isSliding)
         {
             return;
         }
@@ -65,7 +72,6 @@ public class SlidingController : MonoBehaviour
         slideStartPos = transform.position;
         slideEndPos = slideStartPos + transform.right * playerMovement.GetHorizontal() * slideSpeed;
 
-        anim.SetBool("isSliding", true);
         playerMovement.enabled = false;
     }
 
@@ -109,11 +115,8 @@ public class SlidingController : MonoBehaviour
     private void EndSlide()
     {
         isSliding = false;
-        anim.SetBool("isSliding", false);
         playerMovement.enabled = true;
     }
-
-    public float GetCurrentEnergy() => currentEnergy;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

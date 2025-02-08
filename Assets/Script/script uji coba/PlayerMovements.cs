@@ -7,6 +7,8 @@ public class PlayerMovements : MonoBehaviour
     public float walkSpeed = 3f;
     public float runSpeed = 6f;
     public float crouchSpeed = 1f;
+
+    [Header("Jump Settings")]
     [SerializeField] private float jumpPower = 10f;
     [SerializeField] private float doubleJumpPower = 7f;
 
@@ -15,9 +17,9 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     public Rigidbody2D rb;
-    private Animator anim;
     private SlidingController slidingController;
     private WallJumpController wallJumpController;
+    private CrouchController crouchController;
 
     private float horizontal;
     private bool isFacingRight = true;
@@ -25,19 +27,31 @@ public class PlayerMovements : MonoBehaviour
     private int jumpCount;
     private int maxJumps = 2;
 
+    // Properti untuk kecepatan saat ini
+    private float _currentSpeed;
+    public float currentSpeed
+    {
+        get => _currentSpeed;
+        set => _currentSpeed = value;
+    }
+    public float speedAtTheMoment;
+
     public bool CanMove { get; set; } = true;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         slidingController = GetComponent<SlidingController>();
         wallJumpController = GetComponent<WallJumpController>();
+        crouchController = GetComponent<CrouchController>();
 
         if (wallJumpController == null)
         {
             Debug.LogError("WallJumpController component is missing on the GameObject.");
         }
+
+        // Inisialisasi kecepatan awal
+        _currentSpeed = walkSpeed;
     }
 
     private void Update()
@@ -46,27 +60,23 @@ public class PlayerMovements : MonoBehaviour
         {
             HandleMovementInput();
             HandleJumpInput();
+            
         }
-        else
-        {
-            ResetAnimatorStates();
-        }
+        speedAtTheMoment = _currentSpeed;
+        UpdateCurrentSpeed();
     }
 
     private void FixedUpdate()
     {
         if (!slidingController.isSliding && !wallJumpController.isWallJumping)
         {
-            rb.linearVelocity = new Vector2(horizontal * GetCurrentSpeed(), rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(horizontal * currentSpeed, rb.linearVelocity.y);
         }
     }
 
     private void HandleMovementInput()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        anim.SetBool("isWalking", horizontal != 0 && GetCurrentSpeed() == walkSpeed);
-        anim.SetBool("isRunning", horizontal != 0 && GetCurrentSpeed() == runSpeed);
-        anim.SetBool("isIdling", horizontal == 0);
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -79,7 +89,6 @@ public class PlayerMovements : MonoBehaviour
     private void HandleJumpInput()
     {
         isGrounded = IsGrounded();
-        anim.SetBool("isGrounded", isGrounded);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -104,16 +113,23 @@ public class PlayerMovements : MonoBehaviour
     private void Jump(float power)
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, power);
-        anim.SetTrigger("isJumping");
     }
 
-    private float GetCurrentSpeed()
+    private void UpdateCurrentSpeed()
     {
-        if (Input.GetKey(KeyCode.LeftShift)) return runSpeed;
-        if (Input.GetKey(KeyCode.LeftControl)) return crouchSpeed;
-        return walkSpeed;
+        if (crouchController.IsCrouching())
+        {
+            _currentSpeed = crouchSpeed;
+        }
+        else if (Input.GetKey(KeyCode.LeftShift))
+        {
+            _currentSpeed = runSpeed;
+        }
+        else
+        {
+            _currentSpeed = walkSpeed;
+        }
     }
-
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
@@ -121,7 +137,7 @@ public class PlayerMovements : MonoBehaviour
 
     private void Flip(float horizontalInput)
     {
-        if (horizontalInput > 0 && !isFacingRight || horizontalInput < 0 && isFacingRight)
+        if ((horizontalInput > 0 && !isFacingRight) || (horizontalInput < 0 && isFacingRight))
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
@@ -130,13 +146,8 @@ public class PlayerMovements : MonoBehaviour
         }
     }
 
-    private void ResetAnimatorStates()
+    public float GetHorizontal()
     {
-        anim.SetBool("isWalking", false);
-        anim.SetBool("isRunning", false);
-        anim.SetBool("isIdling", true);
-        anim.SetBool("isGrounded", false);
+        return horizontal;
     }
-
-    public float GetHorizontal() => horizontal;
 }

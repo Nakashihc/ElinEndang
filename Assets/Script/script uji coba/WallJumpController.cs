@@ -65,6 +65,7 @@ public class WallJumpController : MonoBehaviour
             if (wallJumpingCounter <= 0f)
             {
                 isWallJumping = false;
+                Flip();
             }
         }
     }
