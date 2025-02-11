@@ -5137,8 +5137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jong: {fileID: 791057239}
-  slideSpeed: 4
+  slideSpeed: 2
   slideDuration: 0.3
+  isSliding: 0
   wallSlideLayer:
     serializedVersion: 2
     m_Bits: 72
@@ -5167,6 +5168,7 @@ MonoBehaviour:
   crouchspeed: 1
   jumpingPower: 8
   doubleJumpPower: 4
+  canJump: 0
   anim: {fileID: 791057245}
   rb: {fileID: 791057234}
   atas: {fileID: 1751430444}
@@ -5181,6 +5183,8 @@ MonoBehaviour:
   wallSlidingSpeed: 2
   wallJumpingPower: {x: 8, y: 7}
   isGrounded: 0
+  vCam: {fileID: 1439015588}
+  smoothspeed: 0.01
 --- !u!120 &791057242
 LineRenderer:
   serializedVersion: 2
@@ -5346,7 +5350,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1361111, y: 1.2037896}
+    oldSize: {x: 0.8804895, y: 0.8796297}
     newSize: {x: 0.8804895, y: 0.8796297}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5511,13 +5515,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795776691}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.24812624, w: 0.9687277}
-  m_LocalPosition: {x: -1.519, y: -0.173, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.519, y: 0.62, z: 0}
   m_LocalScale: {x: 1.5910475, y: 1.5910475, z: 1.5910475}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1177196437}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.733}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797644401
 GameObject:
   m_ObjectHideFlags: 0
@@ -6652,7 +6656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1007675344}
   - component: {fileID: 1007675345}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tanah
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -72,14 +72,19 @@ public class Movement : MonoBehaviour
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     currentSpeed = runningSpeed;
-                    sliding.canSlide = true; // Sliding diizinkan
+                    sliding.canSlide = true;
                     anim.SetBool("isCrouching", false);
+                }
+                else if (sliding.isSliding)
+                {
+                    canmove = false;
+                    sliding.canSlide = true;
                 }
                 else
                 {
                     // Jalan
                     currentSpeed = jalan;
-                    sliding.canSlide = false; // Tidak bisa sliding
+                    sliding.canSlide = false;
                     anim.SetBool("isCrouching", false);
                 }
             }

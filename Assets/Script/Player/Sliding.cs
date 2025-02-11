@@ -6,7 +6,7 @@ public class Sliding : MonoBehaviour
     [Header("Sliding")]
     public float slideSpeed = 10f;
     public float slideDuration = 0.5f;
-    private bool isSliding = false;
+    public bool isSliding = false;
     private float slideTimer = 0f;
     private Vector3 slideStartPos;
     private Vector3 slideEndPos;
@@ -39,6 +39,15 @@ public class Sliding : MonoBehaviour
             currentEnergy += energyRegenRate * Time.deltaTime;
             currentEnergy = Mathf.Min(currentEnergy, maxEnergy);
         }
+
+        if (isSliding)
+        {
+            movement.anim.SetBool("isSliding", true);
+        }
+        else
+        {
+            movement.anim.SetBool("isSliding", false);
+        }
     }
 
     public void StartSlide()
@@ -49,7 +58,7 @@ public class Sliding : MonoBehaviour
             slideTimer = 0f;
             movement.anim.SetBool("isCrouching", false);
             jong.UpdateColliderState(false);
-            movement.enabled = false;
+            movement.canmove = false;
             currentEnergy -= energyCost;
 
             slideStartPos = transform.position;
@@ -70,7 +79,6 @@ public class Sliding : MonoBehaviour
             if (isSliding)
             {
                 slideTimer += Time.deltaTime;
-                movement.anim.SetBool("isSliding", true);
                 BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
                 if (boxCollider != null)
                 {
@@ -103,9 +111,8 @@ public class Sliding : MonoBehaviour
             }
             else
             {
-                movement.anim.SetBool("isSliding", false);
                 jong.UpdateColliderState(true);
-                movement.enabled = true;
+                movement.canmove = true;
             }
         }
     }
