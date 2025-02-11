@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 60e7f80b415c5e4419b3e2a3b8893574
+guid: d295a4c9d6b1cdd439bb19054ef34000
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4786191159058684849
-    second: beachbackgroundlayer1_0
+      213: 4940156361323193023
+    second: Elin Slide_0
   - first:
-      213: -7486891210890604398
-    second: beachbackgroundlayer1_1
+      213: 5571349530091832336
+    second: Elin Slide_1
   - first:
-      213: -2110694462812782917
-    second: beachbackgroundlayer1_2
+      213: -6442931428520570800
+    second: Elin Slide_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1080
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -145,13 +145,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: beachbackgroundlayer1_0
+      name: Elin Slide_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 33
-        width: 118
-        height: 119
+        x: 0
+        y: 0
+        width: 1227
+        height: 1298
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f442139cf78049db0800000000000000
-      internalID: -4786191159058684849
+      spriteID: fb22e8b5906fe8440800000000000000
+      internalID: 4940156361323193023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beachbackgroundlayer1_1
+      name: Elin Slide_1
       rect:
         serializedVersion: 2
-        x: 130
-        y: 3
-        width: 101
-        height: 90
+        x: 1227
+        y: 0
+        width: 1227
+        height: 1298
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2901fd66c18391890800000000000000
-      internalID: -7486891210890604398
+      spriteID: 014c9ac11e8615d40800000000000000
+      internalID: 5571349530091832336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beachbackgroundlayer1_2
+      name: Elin Slide_2
       rect:
         serializedVersion: 2
-        x: 226
-        y: 6
-        width: 386
-        height: 364
+        x: 2454
+        y: 0
+        width: 1227
+        height: 1298
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,8 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bbef8aaa19e45b2e0800000000000000
-      internalID: -2110694462812782917
+      spriteID: 050d4da700c1696a0800000000000000
+      internalID: -6442931428520570800
       vertices: []
       indices: 
       edges: []
@@ -214,7 +214,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0c83f9716f584594b880a6729c65dee5
     internalID: 0
     vertices: []
     indices: 
@@ -224,9 +224,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      beachbackgroundlayer1_0: -4786191159058684849
-      beachbackgroundlayer1_1: -7486891210890604398
-      beachbackgroundlayer1_2: -2110694462812782917
+      Elin Slide_0: 4940156361323193023
+      Elin Slide_1: 5571349530091832336
+      Elin Slide_2: -6442931428520570800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

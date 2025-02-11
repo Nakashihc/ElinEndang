@@ -1,16 +1,28 @@
 fileFormatVersion: 2
-guid: 60e7f80b415c5e4419b3e2a3b8893574
+guid: 985a3401e4abfa94a9ac461417628ef5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4786191159058684849
-    second: beachbackgroundlayer1_0
+      213: 8451877080387850413
+    second: Elin Crouch_0
   - first:
-      213: -7486891210890604398
-    second: beachbackgroundlayer1_1
+      213: 3953384916748435441
+    second: Elin Crouch_1
   - first:
-      213: -2110694462812782917
-    second: beachbackgroundlayer1_2
+      213: -4563429025991187170
+    second: Elin Crouch_2
+  - first:
+      213: -1495576725546288884
+    second: Elin Crouch_3
+  - first:
+      213: 8581779516961987730
+    second: Elin Crouch_4
+  - first:
+      213: -8283986932739458438
+    second: Elin Crouch_5
+  - first:
+      213: 4822871648136850480
+    second: Elin Crouch_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1080
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -145,67 +157,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: beachbackgroundlayer1_0
+      name: Elin Crouch_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 33
-        width: 118
-        height: 119
+        x: 0
+        y: 0
+        width: 1227
+        height: 1298
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f442139cf78049db0800000000000000
-      internalID: -4786191159058684849
+      spriteID: ef397ca5e83149e40acc01afed07555a
+      internalID: -1303454954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beachbackgroundlayer1_1
+      name: Elin Crouch_1
       rect:
         serializedVersion: 2
-        x: 130
-        y: 3
-        width: 101
-        height: 90
+        x: 1227
+        y: 0
+        width: 1227
+        height: 1298
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2901fd66c18391890800000000000000
-      internalID: -7486891210890604398
+      spriteID: d7682e1c5659eba41ab13bd16118e272
+      internalID: -1224844577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beachbackgroundlayer1_2
+      name: Elin Crouch_2
       rect:
         serializedVersion: 2
-        x: 226
-        y: 6
-        width: 386
-        height: 364
+        x: 2454
+        y: 0
+        width: 1227
+        height: 1298
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bbef8aaa19e45b2e0800000000000000
-      internalID: -2110694462812782917
+      spriteID: 74f8d1752676aa34e9eea10b30f37d19
+      internalID: -1739105924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elin Crouch_3
+      rect:
+        serializedVersion: 2
+        x: 3681
+        y: 0
+        width: 1227
+        height: 1298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99e10bbb9f10932468f138466a01558a
+      internalID: 297158948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elin Crouch_4
+      rect:
+        serializedVersion: 2
+        x: 4908
+        y: 0
+        width: 1227
+        height: 1298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d61179a7de78d442b0545b1ffeefa46
+      internalID: 1879487722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elin Crouch_5
+      rect:
+        serializedVersion: 2
+        x: 6135
+        y: 0
+        width: 1227
+        height: 1298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8394a767e860be34593b82c8017e262b
+      internalID: 205608159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elin Crouch_6
+      rect:
+        serializedVersion: 2
+        x: 7362
+        y: 0
+        width: 1227
+        height: 1298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3627383cea8e6b4a8fa813e03176f5e
+      internalID: 989738194
       vertices: []
       indices: 
       edges: []
@@ -214,7 +314,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1da5d47ab2f2d4040909331b1124679e
     internalID: 0
     vertices: []
     indices: 
@@ -224,9 +324,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      beachbackgroundlayer1_0: -4786191159058684849
-      beachbackgroundlayer1_1: -7486891210890604398
-      beachbackgroundlayer1_2: -2110694462812782917
+      Elin Crouch_0: -1303454954
+      Elin Crouch_1: -1224844577
+      Elin Crouch_2: -1739105924
+      Elin Crouch_3: 297158948
+      Elin Crouch_4: 1879487722
+      Elin Crouch_5: 205608159
+      Elin Crouch_6: 989738194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
