@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float doubleJumpPower = 7f;
     private float horizontal;
     private bool isFacingRight = true;
-
+    public bool canJump;
     public Animator anim;
 
     [Header("Wall Jump")]
@@ -43,6 +43,7 @@ public class Movement : MonoBehaviour
     public bool isGrounded = false;
     private int jumpCount = 0;
     private int maxJumps = 2;
+
 
     private void Start()
     {
@@ -88,26 +89,29 @@ public class Movement : MonoBehaviour
             isGrounded = IsGrounded();
             anim.SetBool("isFalling", !isGrounded);
 
-            if (Input.GetButtonDown("Jump"))
+            if (canJump)
             {
-                if (isGrounded)
+                if (Input.GetButtonDown("Jump"))
                 {
-                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
-                    jumpCount = 1;
-                    anim.SetTrigger("isJumping");
+                    if (isGrounded)
+                    {
+                        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+                        jumpCount = 1;
+                        anim.SetTrigger("isJumping");
+                    }
+                    else if (jumpCount < maxJumps)
+                    {
+                        rb.linearVelocity = new Vector2(rb.linearVelocity.x, doubleJumpPower);
+                        jumpCount++;
+                    }
                 }
-                else if (jumpCount < maxJumps)
+
+                if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
                 {
-                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, doubleJumpPower);
-                    jumpCount++;
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
                 }
             }
-
-            if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
-            }
-
+            
             WallSlide();
             WallJump();
 
@@ -239,5 +243,24 @@ public class Movement : MonoBehaviour
     public void DisableCollider()
     {
         atas.enabled = false;
+    }
+
+    public void Idle()
+    {
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isRunning", false);
+        anim.SetBool("isCrouching", false);
+        anim.SetBool("isFalling", false);
+        anim.SetBool("isIdling", true);
+    }
+
+    public void CanJumpp()
+    {
+        canJump = true;
+    }
+
+    public void CantJumpp()
+    {
+        canJump = false;
     }
 }
