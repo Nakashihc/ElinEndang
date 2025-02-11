@@ -91,18 +91,21 @@ public class Fighting : MonoBehaviour
             }
         }
 
-        if (Magicc.canMagic)
+        if (Magicc != null)
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            if (Magicc.canMagic)
             {
-                Magicc.canMagic = false;
+                if (Input.GetKeyDown(KeyCode.J))
+                {
+                    Magicc.canMagic = false;
+                }
             }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.J))
+            else
             {
-                Magicc.canMagic = true;
+                if (Input.GetKeyDown(KeyCode.J))
+                {
+                    Magicc.canMagic = true;
+                }
             }
         }
     }

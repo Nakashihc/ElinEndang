@@ -1,11 +1,12 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Cinemachine;
 
 public class Movement : MonoBehaviour
 {
     public Jongkok jongkok;
     public Sliding sliding;
-    public bool canmove;    
+    public bool canmove;
 
     [Header("Walk Run Jump")]
     public float currentSpeed;
@@ -43,7 +44,8 @@ public class Movement : MonoBehaviour
     public bool isGrounded = false;
     private int jumpCount = 0;
     private int maxJumps = 2;
-
+    public CinemachineVirtualCamera vCam;
+    public float smoothspeed;
 
     private void Start()
     {
@@ -97,13 +99,23 @@ public class Movement : MonoBehaviour
                     {
                         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
                         jumpCount = 1;
-                        anim.SetTrigger("isJumping");
+                        anim.SetBool("isJumping", true);
                     }
                     else if (jumpCount < maxJumps)
                     {
                         rb.linearVelocity = new Vector2(rb.linearVelocity.x, doubleJumpPower);
                         jumpCount++;
                     }
+                }
+
+                if (!isGrounded)
+                {
+                    anim.SetBool("Fall", true);
+                    anim.SetBool("isJumping", false);
+                }
+                else
+                {
+                    anim.SetBool("Fall", false);
                 }
 
                 if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
@@ -133,6 +145,15 @@ public class Movement : MonoBehaviour
         if (!isGrounded)
         {
             sliding.canSlide = false;
+        }
+
+        if (isFacingRight)
+        {
+            SetCameraOffset(1);
+        }
+        else
+        {
+            SetCameraOffset(-1);
         }
     }
 
@@ -262,5 +283,18 @@ public class Movement : MonoBehaviour
     public void CantJumpp()
     {
         canJump = false;
+    }
+
+
+    void SetCameraOffset(float position)
+    {
+        if (vCam != null)
+        {
+            CinemachineCameraOffset cinemachinefollow = vCam.GetComponent<CinemachineCameraOffset>();
+            Vector3 currentOffset = cinemachinefollow.m_Offset;
+
+            float smoothX = Mathf.Lerp(currentOffset.x, position, smoothspeed);
+            cinemachinefollow.m_Offset = new Vector3(smoothX, currentOffset.y, currentOffset.z);
+        }
     }
 }
