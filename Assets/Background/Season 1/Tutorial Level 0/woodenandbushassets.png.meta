@@ -248,7 +248,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      woodenandbushassets_0: 7686465699694970501
+      woodenandbushassets_1: 1564642316389371006
+      woodenandbushassets_2: 6739059994298871652
+      woodenandbushassets_3: -5252173719863720215
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
