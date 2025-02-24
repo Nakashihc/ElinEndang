@@ -1,13 +1,37 @@
 fileFormatVersion: 2
-guid: f23fc55574cdd83408d4b67cb334587b
+guid: 31fd004a4f704e54b8c490ee98580b60
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7849804723413020298
-    second: Cave Layer 1_0
+      213: -5547041465798204935
+    second: Sea Waves Animation Frames_0
   - first:
-      213: 9066490534080342089
-    second: Cave Layer 1_1
+      213: -9133965509906898085
+    second: Sea Waves Animation Frames_1
+  - first:
+      213: -3629442649800062874
+    second: Sea Waves Animation Frames_2
+  - first:
+      213: 2749548166383681070
+    second: Sea Waves Animation Frames_3
+  - first:
+      213: -7109247454952036798
+    second: Sea Waves Animation Frames_4
+  - first:
+      213: -435383434644757209
+    second: Sea Waves Animation Frames_5
+  - first:
+      213: -3176217540213415409
+    second: Sea Waves Animation Frames_6
+  - first:
+      213: 5449548101536749340
+    second: Sea Waves Animation Frames_7
+  - first:
+      213: -3263233987223216584
+    second: Sea Waves Animation Frames_8
+  - first:
+      213: -4130365424317542058
+    second: Sea Waves Animation Frames_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +79,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 243, z: 553, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,7 +124,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,7 +137,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -142,13 +166,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cave Layer 1_0
+      name: Sea Waves Animation Frames_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 231
-        width: 119
-        height: 157
+        x: 27
+        y: 1800
+        width: 1377
+        height: 419
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a8e673f4ecb10fc60800000000000000
-      internalID: 7849804723413020298
+      spriteID: 9f16cb42d23f403b0800000000000000
+      internalID: -5547041465798204935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave Layer 1_1
+      name: Sea Waves Animation Frames_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 670
-        height: 99
+        x: 24
+        y: 1219
+        width: 1381
+        height: 546
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,52 +203,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 948ec4bba15a2dd70800000000000000
-      internalID: 9066490534080342089
+      spriteID: 668c30eb321a1adc0800000000000000
+      internalID: -3629442649800062874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave Layer 5_0
+      name: Sea Waves Animation Frames_3
       rect:
         serializedVersion: 2
-        x: 152
-        y: 231
-        width: 112
-        height: 157
+        x: 27
+        y: 628
+        width: 1386
+        height: 595
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 46b77fe8f354117478246d7a985e4882
-      internalID: 812387457
+      spriteID: e2e30265d7b582620800000000000000
+      internalID: 2749548166383681070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave Layer 5_1
+      name: Sea Waves Animation Frames_5
       rect:
         serializedVersion: 2
-        x: 265
-        y: 231
-        width: 90
-        height: 157
+        x: 26
+        y: 5
+        width: 1402
+        height: 618
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e15e8a5b9bd4444438bf14ea0061ecaa
-      internalID: -493888400
+      spriteID: 725e8eca21535f9f0800000000000000
+      internalID: -435383434644757209
       vertices: []
       indices: 
       edges: []
@@ -233,8 +257,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 0f0ab18039e0a414d9709575f93380ef
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -243,10 +267,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cave Layer 1_0: 7849804723413020298
-      Cave Layer 1_1: 9066490534080342089
-      Cave Layer 5_0: 812387457
-      Cave Layer 5_1: -493888400
+      Sea Waves Animation Frames_0: -5547041465798204935
+      Sea Waves Animation Frames_2: -3629442649800062874
+      Sea Waves Animation Frames_3: 2749548166383681070
+      Sea Waves Animation Frames_5: -435383434644757209
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: f23fc55574cdd83408d4b67cb334587b
+guid: 0a202a490de5e654fa5088a81eb63825
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7849804723413020298
-    second: Cave Layer 1_0
-  - first:
-      213: 9066490534080342089
-    second: Cave Layer 1_1
+      213: -5013393261019895894
+    second: pasir_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,8 +51,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 243, z: 553, w: 0}
+  spritePixelsToUnits: 153
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -78,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,7 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -142,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cave Layer 1_0
+      name: pasir_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 231
-        width: 119
-        height: 157
+        x: 20
+        y: 339
+        width: 155
+        height: 155
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,42 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a8e673f4ecb10fc60800000000000000
-      internalID: 7849804723413020298
+      spriteID: aa762952469dc6ab0800000000000000
+      internalID: -5013393261019895894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave Layer 1_1
+      name: pasir_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 670
-        height: 99
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 948ec4bba15a2dd70800000000000000
-      internalID: 9066490534080342089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cave Layer 5_0
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 231
-        width: 112
-        height: 157
+        x: 175
+        y: 339
+        width: 155
+        height: 155
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46b77fe8f354117478246d7a985e4882
-      internalID: 812387457
+      spriteID: 107170136ca97c646ac594e06bab749f
+      internalID: -627292701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave Layer 5_1
+      name: pasir_2
       rect:
         serializedVersion: 2
-        x: 265
-        y: 231
-        width: 90
-        height: 157
+        x: 330
+        y: 339
+        width: 155
+        height: 155
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +198,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e15e8a5b9bd4444438bf14ea0061ecaa
-      internalID: -493888400
+      spriteID: 80ca3360973d32841a6d9c4149143da9
+      internalID: 1570711640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasir_3
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 184
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f0be6fc5bdc0c049a55474ca94b97aa
+      internalID: -28759617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasir_4
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 184
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe3c167b34eeb74ead71ba972287faf
+      internalID: 2073027462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasir_5
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 184
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e60ed48f7c82ea488fd7dc70b93b2c4
+      internalID: -123883387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasir_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 29
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1437ee269d4b04b429573811dbe0fa24
+      internalID: 98540835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasir_7
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 29
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bb98f7b5ffaf4b4891f0a52681e39bd
+      internalID: -1980621847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pasir_8
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 29
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519cea34a41c7ec499cfe03d44bc9e24
+      internalID: -1957891318
       vertices: []
       indices: 
       edges: []
@@ -233,8 +340,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 374880e3f5c563249a23d57b695dd120
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -243,10 +350,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cave Layer 1_0: 7849804723413020298
-      Cave Layer 1_1: 9066490534080342089
-      Cave Layer 5_0: 812387457
-      Cave Layer 5_1: -493888400
+      pasir_0: -5013393261019895894
+      pasir_1: -627292701
+      pasir_2: 1570711640
+      pasir_3: -28759617
+      pasir_4: 2073027462
+      pasir_5: -123883387
+      pasir_6: 98540835
+      pasir_7: -1980621847
+      pasir_8: -1957891318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

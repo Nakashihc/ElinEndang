@@ -1,13 +1,61 @@
 fileFormatVersion: 2
-guid: f23fc55574cdd83408d4b67cb334587b
+guid: 8ef5e7ef6d9b74c428e3c29c59439a63
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7849804723413020298
-    second: Cave Layer 1_0
+      213: 7264121621502265065
+    second: Sea Waves Animation Frames 2_0
   - first:
-      213: 9066490534080342089
-    second: Cave Layer 1_1
+      213: -9212042372929025327
+    second: Sea Waves Animation Frames 2_1
+  - first:
+      213: 4131195483195321721
+    second: Sea Waves Animation Frames 2_2
+  - first:
+      213: -5916755416341320911
+    second: Sea Waves Animation Frames 2_3
+  - first:
+      213: 4862383859561790133
+    second: Sea Waves Animation Frames 2_4
+  - first:
+      213: -7336485114503132151
+    second: Sea Waves Animation Frames 2_5
+  - first:
+      213: 2568925820880416456
+    second: Sea Waves Animation Frames 2_6
+  - first:
+      213: 7976559000869947778
+    second: Sea Waves Animation Frames 2_7
+  - first:
+      213: 3620832128483864450
+    second: Sea Waves Animation Frames 2_8
+  - first:
+      213: -9169292185040520849
+    second: Sea Waves Animation Frames 2_9
+  - first:
+      213: -8873100134648550758
+    second: Sea Waves Animation Frames 2_10
+  - first:
+      213: 6000405274618916340
+    second: Sea Waves Animation Frames 2_11
+  - first:
+      213: -4970260222978021156
+    second: Sea Waves Animation Frames 2_12
+  - first:
+      213: 8841693200469364383
+    second: Sea Waves Animation Frames 2_13
+  - first:
+      213: -4418623101013182694
+    second: Sea Waves Animation Frames 2_14
+  - first:
+      213: 1418579167093143171
+    second: Sea Waves Animation Frames 2_15
+  - first:
+      213: 8302903873465082237
+    second: Sea Waves Animation Frames 2_16
+  - first:
+      213: -1819863338669358627
+    second: Sea Waves Animation Frames 2_17
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +103,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 243, z: 553, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,7 +148,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,7 +161,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -142,13 +190,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cave Layer 1_0
+      name: Sea Waves Animation Frames 2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 231
-        width: 119
-        height: 157
+        y: 1796
+        width: 1040
+        height: 493
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a8e673f4ecb10fc60800000000000000
-      internalID: 7849804723413020298
+      spriteID: 9e680e6b0285fc460800000000000000
+      internalID: 7264121621502265065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave Layer 1_1
+      name: Sea Waves Animation Frames 2_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 670
-        height: 99
+        y: 1254
+        width: 1040
+        height: 541
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,52 +227,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 948ec4bba15a2dd70800000000000000
-      internalID: 9066490534080342089
+      spriteID: 1da08b1f440482080800000000000000
+      internalID: -9212042372929025327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave Layer 5_0
+      name: Sea Waves Animation Frames 2_2
       rect:
         serializedVersion: 2
-        x: 152
-        y: 231
-        width: 112
-        height: 157
+        x: 0
+        y: 4
+        width: 1040
+        height: 577
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 46b77fe8f354117478246d7a985e4882
-      internalID: 812387457
+      spriteID: 97d2e896764f45930800000000000000
+      internalID: 4131195483195321721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave Layer 5_1
+      name: Sea Waves Animation Frames 2_3
       rect:
         serializedVersion: 2
-        x: 265
-        y: 231
-        width: 90
-        height: 157
+        x: 0
+        y: 578
+        width: 1040
+        height: 666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e15e8a5b9bd4444438bf14ea0061ecaa
-      internalID: -493888400
+      spriteID: 13b6b121c4673eda0800000000000000
+      internalID: -5916755416341320911
       vertices: []
       indices: 
       edges: []
@@ -233,8 +281,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 72c514b153a80a441a8848e32928fadf
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -243,10 +291,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cave Layer 1_0: 7849804723413020298
-      Cave Layer 1_1: 9066490534080342089
-      Cave Layer 5_0: 812387457
-      Cave Layer 5_1: -493888400
+      Sea Waves Animation Frames 2_0: 7264121621502265065
+      Sea Waves Animation Frames 2_1: -9212042372929025327
+      Sea Waves Animation Frames 2_10: -8873100134648550758
+      Sea Waves Animation Frames 2_2: 4131195483195321721
+      Sea Waves Animation Frames 2_3: -5916755416341320911
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

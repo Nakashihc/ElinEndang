@@ -64,6 +64,9 @@ TagManager:
   - name: Char
     uniqueID: 1919092289
     locked: 0
+  - name: Obstacle
+    uniqueID: 1580118773
+    locked: 0
   - name: Foreground 1
     uniqueID: 2015661851
     locked: 0
